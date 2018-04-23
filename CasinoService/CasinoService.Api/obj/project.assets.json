@@ -12535,28 +12535,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/jermaineoliver/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Bmarc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Revature/jermaine.code/CasinoProject/CasinoService/CasinoService.Api/CasinoService.Api.csproj",
+      "projectUniqueName": "C:\\Users\\Bmarc\\Source\\Repos\\CasinoProject\\CasinoService\\CasinoService.Api\\CasinoService.Api.csproj",
       "projectName": "CasinoService.Api",
-      "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoService/CasinoService.Api/CasinoService.Api.csproj",
-      "packagesPath": "/Users/jermaineoliver/.nuget/packages/",
-      "outputPath": "/Revature/jermaine.code/CasinoProject/CasinoService/CasinoService.Api/obj/",
+      "projectPath": "C:\\Users\\Bmarc\\Source\\Repos\\CasinoProject\\CasinoService\\CasinoService.Api\\CasinoService.Api.csproj",
+      "packagesPath": "C:\\Users\\Bmarc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bmarc\\Source\\Repos\\CasinoProject\\CasinoService\\CasinoService.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/jermaineoliver/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Bmarc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

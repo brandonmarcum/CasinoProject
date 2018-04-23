@@ -1,0 +1,95 @@
+@import "https://fonts.googleapis.com/css?family=Viga";
+@import "https://afeld.github.io/emoji-css/emoji.css";
+
+
+body {
+    background-color: rgb(100, 5, 5);
+    font-family: 'Viga', sans-serif;
+    text-transform: uppercase;
+}
+
+.content {
+    background-color: rgba(180, 5, 5, 0.9);
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    color: yellow;
+    background-size: 100% 100%;
+    border-radius: 60px;
+    padding: 1%;
+}
+
+        #contentimg{margin-bottom: 1%; margin-top: 1%;}
+        #gameimage {width: 50%}
+
+#gamestable{
+            border-spacing: 2em;
+            border-collapse: separate;
+        }
+
+.gameimage{
+    width: 400px; height: 200px;
+}
+
+#gamestable{
+	margin: 2%;
+}
+
+td {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgba(110, 5, 5, 0.7);
+    vertical-align: top;
+    border-radius: 60px;
+}
+
+ article{
+            padding: 3%;
+            vertical-align: top;
+        }
+
+footer{
+            background-color: gray;
+            color: white;
+            text-align: center;
+        }
+
+a:link, a:visited, a:hover{
+            text-decoration-style: none;
+            color: yellow;
+        }
+
+        #asiderps{
+            background-color: rgb(240,220,220);
+        }
+
+#UBSelect {
+    background-color: tomato;
+}
+
+#index-content{
+    vertical-align: auto;
+}
+
+button {
+    background: #d1396e;
+    border-radius: 60px;
+    font-family: Courier New;
+    color: #ffffff;
+    font-size: 27px;
+    padding: 1%;
+    margin: 3%;
+    text-decoration: none;
+}
+
+    button:hover {
+        background: #283842;
+        background-image: -webkit-linear-gradient(top, #283842, #acc1cf);
+        background-image: -moz-linear-gradient(top, #283842, #acc1cf);
+        background-image: -o-linear-gradient(top, #283842, #acc1cf);
+        background-image: linear-gradient(to bottom, #283842, #acc1cf);
+        text-decoration: none;
+    }
+

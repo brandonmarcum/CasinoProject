@@ -12541,28 +12541,33 @@
     ]
   },
   "packageFolders": {
-    "/Users/jermaineoliver/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\Bmarc\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj",
+      "projectUniqueName": "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj",
       "projectName": "CasinoData.Db",
-      "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj",
-      "packagesPath": "/Users/jermaineoliver/.nuget/packages/",
-      "outputPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/obj/",
+      "projectPath": "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj",
+      "packagesPath": "C:\\Users\\Bmarc\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Db\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/jermaineoliver/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\Bmarc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
