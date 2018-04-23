@@ -1,0 +1,34 @@
+@model Casino.Client.Models.SlotsViewModel
+
+
+@*@await Html.PartialAsync("UserBet.cshtml", @Model);*@
+
+
+@using (@Html.BeginForm())
+{
+    <main>
+            <header class="col-md-3"></header>
+            <header class="col-md-6 content">
+                <p>Playing Slots!</p>
+                <p>@ViewData["status"]</p>
+                <p>Slot 1: @ViewData["left"]</p>
+                <p>Slot 2: @ViewData["middle"]</p>
+                <p>Slot 3: @ViewData["right"]</p>
+
+
+                @if (Model.Slots.status.Equals("playing"))
+                {
+                <button type="submit" name="submitButton" value="run">Run!</button>
+                <button type="submit" name="submitButton" value="stop">Stop</button>
+                }
+                else
+                {
+                <button type="submit" name="submitButton" value="play">Play Again</button>
+                }
+
+            </header>
+            <header class="col-md-3"></header>
+        </main>
+
+}
+
