@@ -1,0 +1,17 @@
+﻿<Properties StartupConfiguration="{E59B5709-206A-4E00-9929-964BDD18E413}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CasinoService.Api/Controllers/GameController.cs">
+    <Files>
+      <File FileName="CasinoService.Api/Controllers/UserController.cs" Line="55" Column="1" />
+      <File FileName="CasinoService.Api/Controllers/GameController.cs" Line="16" Column="8" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="/Revature/jermaine.code/CasinoService/CasinoService.Api/Controllers/GameController.cs" relfile="CasinoService.Api/Controllers/GameController.cs" line="28" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.CasinoService.Api PreferredExecutionTarget="MonoDevelop.Default" />
+</Properties>

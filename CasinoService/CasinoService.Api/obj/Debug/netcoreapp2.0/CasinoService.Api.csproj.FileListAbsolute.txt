@@ -1,0 +1,11 @@
+/Revature/jermaine.code/CasinoService/CasinoService.Api/bin/Debug/netcoreapp2.0/CasinoService.Api.deps.json
+/Revature/jermaine.code/CasinoService/CasinoService.Api/bin/Debug/netcoreapp2.0/CasinoService.Api.runtimeconfig.json
+/Revature/jermaine.code/CasinoService/CasinoService.Api/bin/Debug/netcoreapp2.0/CasinoService.Api.runtimeconfig.dev.json
+/Revature/jermaine.code/CasinoService/CasinoService.Api/bin/Debug/netcoreapp2.0/CasinoService.Api.dll
+/Revature/jermaine.code/CasinoService/CasinoService.Api/bin/Debug/netcoreapp2.0/CasinoService.Api.pdb
+/Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.csprojResolveAssemblyReference.cache
+/Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.csproj.CoreCompileInputs.cache
+/Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.AssemblyInfoInputs.cache
+/Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.AssemblyInfo.cs
+/Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.dll
+/Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.pdb
