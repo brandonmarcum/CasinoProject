@@ -42,13 +42,14 @@ namespace Casino.Client.Controllers
         
             newUser = UserHelper.GetUser(username).GetAwaiter().GetResult();
 
-            Console.WriteLine("successfully retrieved user from database back in client: " + newUser.Name);
+            Console.WriteLine("successfully retrieved user from database back in client: " + newUser.Name 
+                + "username: "+ newUser.Username + "password: " + newUser.Password + "Age: "+ newUser.Age
+                + "Email: " + newUser.Email);
 
             if(newUser.Name.Equals("falseuser"))
             {
                 return RedirectToAction("Error", "User");
             }
-
 
             HttpContext.Session.Set<User>("currentUser", newUser);
             return RedirectToAction("Index", "Home");

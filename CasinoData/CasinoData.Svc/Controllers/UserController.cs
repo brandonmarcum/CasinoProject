@@ -15,7 +15,7 @@ namespace CasinoData.Svc.Controllers
         [HttpGet("{username}")]
         [ActionName("datauserget")]
         [Route("api/user/datauserget/{username}")]
-        public async Task<Users> UserGetAsync(string username)
+        public async Task<User> UserGetAsync(string username)
         {
             //Get user from DB using EF DBContext, pass it through
             //Populate the User Pocket by using the UserPocketID foreign key together with Pocket DBContext
@@ -54,9 +54,16 @@ namespace CasinoData.Svc.Controllers
             {
                 user.Name = "falseuser";
             }
-        
+            User verifiedUser = new User();
 
-            return await Task.Run(() => user);
+            verifiedUser.Username = user.Username;
+            verifiedUser.Name = user.Name;
+            verifiedUser.Age = user.Age;
+            verifiedUser.Email = user.Email;
+            verifiedUser.Password = user.Password;
+            
+
+            return await Task.Run(() => verifiedUser);
         }
         [HttpPost]
         [ActionName("datauserregister")]
