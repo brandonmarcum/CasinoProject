@@ -16,7 +16,7 @@ namespace CasinoData.Db
         public int ChipsId { get; set; }
         public int Amount { get; set; }
         public string Type { get; set; }
-
+        [NotMapped]
         public ICollection<Pockets> Pockets { get; set; }
     }
 }

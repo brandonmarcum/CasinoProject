@@ -9,7 +9,7 @@ namespace CasinoService.Api.Models
     {
         public List<Chips> AllChips{ get; set; }
         public double CashInPocket{ get; set; }
-        public double CoinsInPocket{ get; set; }
+        public int CoinsInPocket{ get; set; }
         public Pocket(){
             AllChips = new List<Chips>();
             AllChips.Add(new Chips(){Type = ChipTypes.Orange, Amount = 0});
@@ -62,7 +62,7 @@ namespace CasinoService.Api.Models
             int centsOverQuarter = (int)(quarters - Math.Floor(quarters))*25;
             
             //put everything into pocket
-            CoinsInPocket = Math.Floor(quarters);
+            CoinsInPocket = (int)Math.Floor(quarters);
             CashInPocket += centsOverQuarter/100;
             }
             else

@@ -84,7 +84,7 @@ namespace Casino.Client.Controllers
         }
         [HttpPost]
         public IActionResult Register(UserProfileViewModel upvm)
-        {            
+        {   
             UserHelper.RegisterUserAsync(upvm.User);
             return RedirectToAction("Index", "Game");
         }

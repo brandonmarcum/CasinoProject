@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using CasinoService.Api.Models;
 using Microsoft.AspNetCore.Mvc;
+using CasinoService.Api.Models.ViewModels;
 
 namespace CasinoService.Api.Controllers
 {
@@ -29,7 +30,9 @@ namespace CasinoService.Api.Controllers
         public async Task<User> UserRegisterAsync([FromBody]User user)
         {
             //User user = HttpContext.Session.Get<User>("user");
-            Console.WriteLine("redirected to user get and registering user to db! " + "email: " + user.Username);
+            Console.WriteLine("redirected to user get and registering user to db! " + "username: " + user.Username);
+
+            UserHelper.RegisterUserDataAsync(user);
 
             return await Task.Run(() => user);
         }

@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Angular\**" />
-    <Content Remove="Angular\**" />
-    <EmbeddedResource Remove="Angular\**" />
-    <None Remove="Angular\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -23,6 +16,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Casino.Library\Casino.Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Angular\" />
   </ItemGroup>
 
  

@@ -13,12 +13,16 @@ namespace CasinoData.Db
             Users = new HashSet<Users>();
         }
         [Key]
-        public int PocketId { get; set; }
+        public int PocketID { get; set; }
         public decimal Cash { get; set; }
         public int Coins { get; set; }
+        [ForeignKey("ChipsId")]
         public int? ChipsId { get; set; }
 
-        public Chips Chips { get; set; }
+        public ICollection<Chips> AllChips { get; set; }
+
+        public Chips Chips{ get; set; }
+        [NotMapped]
         public ICollection<Users> Users { get; set; }
     }
 }

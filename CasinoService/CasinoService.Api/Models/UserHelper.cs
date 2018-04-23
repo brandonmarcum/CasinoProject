@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using CasinoService.Api.Models;
 using Newtonsoft.Json;
@@ -28,6 +29,18 @@ namespace CasinoService.Api.Models
 			{
 				return null;
 			}
+		}
+
+		public static async void RegisterUserDataAsync(User user)
+		{
+			var client = new HttpClient();
+
+			var content = JsonConvert.SerializeObject(user);            
+			var stringPost = new StringContent(content,Encoding.UTF8,"application/json");
+
+			Console.WriteLine("Attempting to send user: " + user.Username);
+			
+			await client.PostAsync("http://localhost:5002/api/user/datauserregister", stringPost);
 		}
     }
 }

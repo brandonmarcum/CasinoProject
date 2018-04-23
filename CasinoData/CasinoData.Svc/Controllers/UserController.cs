@@ -58,15 +58,45 @@ namespace CasinoData.Svc.Controllers
 
             return await Task.Run(() => user);
         }
-        [HttpGet]
+        [HttpPost]
         [ActionName("datauserregister")]
-        public void UsersRegisterAsync()
+        public void UsersRegisterAsync([FromBody]User user)
         {
-            EfData ef = new EfData();
-            Users user = UserHelper.RegisterUserAsync().GetAwaiter().GetResult();
-            ef.InsertChips(user.UserPocket.Chips);
-            ef.InsertPocket(user.UserPocket);
-            ef.InsertUser(user);
+            casinodbContext cc = new casinodbContext();
+            //Users user = UserHelper.RegisterUserAsync().GetAwaiter().GetResult();
+            Console.WriteLine("user reached data register as: " + user.Name + " username: " + user.Username);
+
+            Users newUser = new Users();
+
+            newUser.Name = user.Name;
+            newUser.Age = user.Age;
+            newUser.Email = user.Email;
+            newUser.UserId = user.UserID;
+            newUser.Username = user.Username;
+            newUser.Password = user.Password;
+
+            Pockets userPocket = new Pockets();
+
+            userPocket.Cash = (decimal)user.UserPocket.CashInPocket;
+            userPocket.Coins = user.UserPocket.CoinsInPocket;
+
+            Chips userChips = new Chips();
+
+            userPocket.AllChips = user.UserPocket.AllChips;
+
+            newUser.UserPocket = userPocket;
+
+            foreach(var item in newUser.UserPocket.AllChips)
+            {
+                //cc.Chips.Add(item);
+            }
+           // cc.Pockets.Add(newUser.UserPocket);
+            cc.Users.Add(newUser);
+
+            cc.SaveChanges();
+            
+            
+            Console.WriteLine("user: " + newUser.Name + "with username: " + newUser.Username + "is successfully submitted to the database!");
         }
     }
 }

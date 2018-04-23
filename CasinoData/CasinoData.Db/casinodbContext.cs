@@ -35,17 +35,17 @@ namespace CasinoData.Db
 
             modelBuilder.Entity<Pockets>(entity =>
             {
-                entity.HasKey(e => e.PocketId);
+                entity.HasKey(e => e.PocketID);
 
                 entity.ToTable("Pockets", "casinodb");
 
-                entity.Property(e => e.PocketId).HasColumnName("PocketID");
+                entity.Property(e => e.PocketID).HasColumnName("PocketID");
 
                 entity.Property(e => e.Cash).HasColumnType("money");
 
                 entity.Property(e => e.ChipsId).HasColumnName("ChipsID");
 
-                entity.HasOne(d => d.Chips)
+                entity.HasOne( d => d.Chips)
                     .WithMany(p => p.Pockets)
                     .HasForeignKey(d => d.ChipsId)
                     .HasConstraintName("FK__Pockets__ChipsID__534D60F1");
