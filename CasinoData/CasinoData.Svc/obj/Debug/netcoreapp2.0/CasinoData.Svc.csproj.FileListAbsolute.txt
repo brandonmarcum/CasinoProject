@@ -24,3 +24,17 @@
 /Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.AssemblyInfo.cs
 /Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.dll
 /Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.pdb
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\bin\Debug\netcoreapp2.0\CasinoData.Svc.deps.json
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\bin\Debug\netcoreapp2.0\CasinoData.Svc.runtimeconfig.json
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\bin\Debug\netcoreapp2.0\CasinoData.Svc.runtimeconfig.dev.json
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\bin\Debug\netcoreapp2.0\CasinoData.Svc.dll
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\bin\Debug\netcoreapp2.0\CasinoData.Svc.pdb
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\bin\Debug\netcoreapp2.0\CasinoData.Db.dll
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\bin\Debug\netcoreapp2.0\CasinoData.Db.pdb
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\obj\Debug\netcoreapp2.0\CasinoData.Svc.csprojResolveAssemblyReference.cache
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\obj\Debug\netcoreapp2.0\CasinoData.Svc.csproj.CoreCompileInputs.cache
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\obj\Debug\netcoreapp2.0\CasinoData.Svc.AssemblyInfoInputs.cache
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\obj\Debug\netcoreapp2.0\CasinoData.Svc.AssemblyInfo.cs
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\obj\Debug\netcoreapp2.0\CasinoData.Svc.csproj.CopyComplete
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\obj\Debug\netcoreapp2.0\CasinoData.Svc.dll
+C:\Users\Bmarc\source\repos\CasinoProject\CasinoData\CasinoData.Svc\obj\Debug\netcoreapp2.0\CasinoData.Svc.pdb
