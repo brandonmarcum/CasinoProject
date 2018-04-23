@@ -1,0 +1,86 @@
+@{
+    ViewData["Title"] = "Temp Index";
+}
+
+    
+
+    <main>
+        <header class="col-md-12 content" id="index-content">
+            <h2>List of Available Games</h2>
+            <table border="0">
+                <tr>
+                    <td class="col-md-4" id="rpsM">
+                        <a asp-area="" asp-controller="Game" asp-action="Games" asp-route-anchor="rps">
+                            <article href="">
+                                <h1>Rock-Paper-Scissors</h1>
+                                <p>
+                                    If you went to a real casino and ask to play rock-paper-scissors for chips, they'd kick you out. But not in my
+                                    casino. Here, you get a fair right at playing rock-paper-scissors with a pure random bot.
+                                </p>
+                            </article>
+                        </a>
+                    </td>
+                    <td class="col-md-4" id="blackjackM">
+                        <a asp-area="" asp-controller="Game" asp-action="Games" asp-route-anchor="blackjack">
+                            <article>
+                                <h1>Blackjack</h1>
+                                <p>
+                                    It's you versus the dealer in a match to not go over 21. The dealer this time likes to play their cards right,
+                                    do you have what it takes to outwit the dealer?
+                                </p>
+                            </article>
+                        </a>
+                    </td>
+                    <td class="col-md-4" id="bingoM">
+                        <a asp-area="" asp-controller="Game" asp-action="Games" asp-route-anchor="bingo">
+                            <article>
+                                <h1>Bingo</h1>
+                                <p>
+                                    Are you a fan of bingo, but don't like the smell of old lady? Well now you can, at the convience of your own
+                                    home. Get a card and it will fill the numbers for you. It's like a lottery ticket that you can actually win.
+                                </p>
+                            </article>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4" id="rouletteM">
+                        <a asp-area="" asp-controller="Game" asp-action="Games" asp-route-anchor="roulette">
+                            <article>
+                                <h1>Russian Roulette</h1>
+                                <p>
+                                    If you are looking for the thrill of putting a gun to your head and having a one-out-of-six chance of dying
+                                    I must say, what's wrong with you? However, if you want that experience without the risk, try out virtual
+                                    Russian Roulette.
+                                </p>
+                            </article>
+                        </a>
+                    </td>
+                    <td class="col-md-4" id="slotsM">
+                        <a asp-area="" asp-controller="Game" asp-action="Games" asp-route-anchor="slots">
+                            <article>
+                                <h1>Slots</h1>
+                                <p>
+                                    No casino is complete without slots. Insert a small coin and get tons in return.
+                                </p>
+                            </article>
+                        </a>
+                    </td>
+                    <td class="col-md-4" id="fightM">
+                        <a asp-area="" asp-controller="Game" asp-action="Games" asp-route-anchor="fight">
+                            <article>
+                                <h1>Chicken Fight</h1>
+                                <p>
+                                    Yes, you read that right. Two chickens boiling angry at each other want to fight. Since this is a virtual
+                                    casino, we obviously don't use real chickens which makes this completely legal.
+                                </p>
+                            </article>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+            <br />
+        </header>
+    </main>
+
+    

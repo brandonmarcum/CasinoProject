@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="brandon marcum">
+    <meta name="description" content="Casino">
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="icon" href="~/images/favicon.ico" />
+    <link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link href="~/css/main.css" rel="stylesheet" />
+
+    <title>Casino</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+</head>
+<body>
+    <header class="col-md-12" style="background-color:rgba(30,30,30, 0.7); margin-top: 1%">
+        <img src="~/images/casino-1086410_1280.jpg" class="col-md-12" height="300"/>
+
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+    </div>
+    <footer class="col-md-12">
+        <br />
+        <br>
+        <nav>
+            <p>
+                <a asp-area="" asp-controller="Game" asp-action="Index">Main </a>|
+                <a asp-area="" asp-controller="Game" asp-action="Games"> Games </a>|
+                <a asp-area="" asp-controller="Game" asp-action="UserProfile"> Profile </a>|
+                <a asp-area="" asp-controller="Game" asp-action="About"> About</a>
+            </p>
+        </nav>
+        <p>
+            Copyright &copy; 2018 <i class="em em-b"></i>randon Marcum and Jermaine Oliver, all rights reserved.
+            <app-root></app-root>
+        </p>
+        <br>
+        <br>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

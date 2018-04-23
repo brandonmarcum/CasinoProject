@@ -1,0 +1,38 @@
+﻿@using Casino.Library.Models;
+@model Casino.Client.Models.RPSViewModel;
+
+@using (@Html.BeginForm())
+{
+<main>
+
+    @if (ViewData["game"].Equals("bet"))
+    {
+
+    @await Html.PartialAsync("UserBet.cshtml", @Model);
+    <button type="submit" name="submitButton" value="bet">Place Bet</button>
+    }
+    else
+    {
+    <header class="col-md-3"></header>
+    <header class="col-md-6 content">
+        <p>@ViewData["game"]</p>
+        <p>Your Chosed: @ViewData["you"]</p>
+        <p>They Chosed: @ViewData["they"]</p>
+        @if (Model.rps.status.Equals("playing"))
+        {
+            <button type="submit" name="submitButton" value="rock">Rock</button>
+            <button type="submit" name="submitButton" value="paper">Paper</button>
+            <button type="submit" name="submitButton" value="scissors">Scissors</button>
+        }
+        else
+        {
+            <button type="submit" name="submitButton" value="play">Play Again</button>
+        }
+
+    </header>
+    <header class="col-md-3"></header>
+    }
+
+</main>
+
+}
