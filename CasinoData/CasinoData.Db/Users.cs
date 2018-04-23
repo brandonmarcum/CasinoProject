@@ -21,7 +21,7 @@ namespace CasinoData.Db
         public string Email { get; set; }
         public int? UserPocketId { get; set; }
         public string Password { get; set; }
-
+        [NotMapped]
         public Pockets UserPocket { get; set; }
     }
 }
