@@ -9,3 +9,14 @@
 /Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.AssemblyInfo.cs
 /Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.dll
 /Revature/jermaine.code/CasinoService/CasinoService.Api/obj/Debug/netcoreapp2.0/CasinoService.Api.pdb
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\bin\Debug\netcoreapp2.0\CasinoService.Api.deps.json
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\bin\Debug\netcoreapp2.0\CasinoService.Api.runtimeconfig.json
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\bin\Debug\netcoreapp2.0\CasinoService.Api.runtimeconfig.dev.json
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\bin\Debug\netcoreapp2.0\CasinoService.Api.dll
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\bin\Debug\netcoreapp2.0\CasinoService.Api.pdb
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\obj\Debug\netcoreapp2.0\CasinoService.Api.csprojResolveAssemblyReference.cache
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\obj\Debug\netcoreapp2.0\CasinoService.Api.csproj.CoreCompileInputs.cache
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\obj\Debug\netcoreapp2.0\CasinoService.Api.AssemblyInfoInputs.cache
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\obj\Debug\netcoreapp2.0\CasinoService.Api.AssemblyInfo.cs
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\obj\Debug\netcoreapp2.0\CasinoService.Api.dll
+C:\Users\Bmarc\Source\Repos\CasinoProject\CasinoService\CasinoService.Api\obj\Debug\netcoreapp2.0\CasinoService.Api.pdb
