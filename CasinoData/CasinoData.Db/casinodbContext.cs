@@ -33,23 +33,23 @@ namespace CasinoData.Db
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Pockets>(entity =>
-            {
-                entity.HasKey(e => e.PocketID);
+            // modelBuilder.Entity<Pockets>(entity =>
+            // {
+            //     entity.HasKey(e => e.PocketID);
 
-                entity.ToTable("Pockets", "casinodb");
+            //     entity.ToTable("Pockets", "casinodb");
 
-                entity.Property(e => e.PocketID).HasColumnName("PocketID");
+            //     entity.Property(e => e.PocketID).HasColumnName("PocketID");
 
-                entity.Property(e => e.Cash).HasColumnType("money");
+            //     entity.Property(e => e.Cash).HasColumnType("money");
 
-                entity.Property(e => e.ChipsId).HasColumnName("ChipsID");
+            //     entity.Property(e => e.ChipsId).HasColumnName("ChipsID");
 
-                entity.HasOne( d => d.Chips)
-                    .WithMany(p => p.Pockets)
-                    .HasForeignKey(d => d.ChipsId)
-                    .HasConstraintName("FK__Pockets__ChipsID__534D60F1");
-            });
+            //     //entity.HasOne( d => d.Chips)
+            //        // .WithMany(p => p.Pockets)
+            //         //.HasForeignKey(d => d.ChipsId)
+            //         //.HasConstraintName("FK__Pockets__ChipsID__534D60F1");
+            // });
 
             modelBuilder.Entity<Users>(entity =>
             {
@@ -77,10 +77,10 @@ namespace CasinoData.Db
                     .IsRequired()
                     .IsUnicode(false);
 
-                entity.HasOne(d => d.UserPocket)
-                    .WithMany(p => p.Users)
-                    .HasForeignKey(d => d.UserPocketId)
-                    .HasConstraintName("FK__Users__UserPocke__5629CD9C");
+                // entity.HasOne(d => d.UserPocket)
+                //     .WithMany(p => p.Users)
+                //     .HasForeignKey(d => d.UserPocketId)
+                //     .HasConstraintName("FK__Users__UserPocke__5629CD9C");
             });
         }
     }
