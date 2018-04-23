@@ -23,30 +23,38 @@ namespace CasinoData.Svc.Controllers
 
             UserContext uc = new UserContext();
             PocketContext pc = new PocketContext();
-            ChipsContext cc = new ChipsContext();
+            //ChipsContext cc = new ChipsContext();
+            casinodbContext cc = new casinodbContext();
             //Users user = UserHelper.GetUserAsync().GetAwaiter().GetResult();
 
             Console.WriteLine("Reached Data UserController with user: " + username);
 
             Users user = new Users();
             
-            user = uc.Users.Where( u => u.Username == username).FirstOrDefault();
+           // user = cc.Users.Where( u => u.Username == username).FirstOrDefault();
             
-            user.Name = "falseuser";
+            //user.Name = "falseuser";
             //if(uc.Users.ToList().Count > 0)
             //{
-                // foreach(var item in uc.Users.ToList())
-                // {
-                //     if(username.Equals(item.Username))
-                //     {
-                //         user = item;
-                //     }
-                //     else 
-                //     {
-                //         user.Name = "falseuser";
-                //     }
-                // }
-            //}
+            if(cc.Users.Count() > 0)
+            {
+                foreach(var item in cc.Users.ToList())
+                {
+                    if(username.Equals(item.Username))
+                    {
+                        user = item;
+                    }
+                    else 
+                    {
+                        user.Name = "falseuser";
+                    }
+                }
+            }
+            else
+            {
+                user.Name = "falseuser";
+            }
+        
 
             return await Task.Run(() => user);
         }

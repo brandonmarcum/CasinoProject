@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace CasinoData.Db
 {
+    [Table("Pockets")]
     public partial class Pockets
     {
         public Pockets()

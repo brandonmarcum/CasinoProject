@@ -11,3 +11,16 @@
 /Revature/jermaine.code/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.pdb
 /Revature/jermaine.code/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Db.dll
 /Revature/jermaine.code/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Db.pdb
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Svc.deps.json
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Svc.runtimeconfig.json
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Svc.runtimeconfig.dev.json
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Svc.dll
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Svc.pdb
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Db.dll
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/bin/Debug/netcoreapp2.0/CasinoData.Db.pdb
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.csprojResolveAssemblyReference.cache
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.csproj.CoreCompileInputs.cache
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.AssemblyInfoInputs.cache
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.AssemblyInfo.cs
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.dll
+/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/Debug/netcoreapp2.0/CasinoData.Svc.pdb

@@ -7,3 +7,12 @@
 /Revature/jermaine.code/CasinoService/bin/Debug/netcoreapp2.0/CasinoService.pdb
 /Revature/jermaine.code/CasinoService/obj/Debug/netcoreapp2.0/CasinoService.dll
 /Revature/jermaine.code/CasinoService/obj/Debug/netcoreapp2.0/CasinoService.pdb
+/Revature/jermaine.code/CasinoProject/CasinoService/bin/Debug/netcoreapp2.0/CasinoService.deps.json
+/Revature/jermaine.code/CasinoProject/CasinoService/bin/Debug/netcoreapp2.0/CasinoService.runtimeconfig.json
+/Revature/jermaine.code/CasinoProject/CasinoService/bin/Debug/netcoreapp2.0/CasinoService.runtimeconfig.dev.json
+/Revature/jermaine.code/CasinoProject/CasinoService/bin/Debug/netcoreapp2.0/CasinoService.dll
+/Revature/jermaine.code/CasinoProject/CasinoService/bin/Debug/netcoreapp2.0/CasinoService.pdb
+/Revature/jermaine.code/CasinoProject/CasinoService/obj/Debug/netcoreapp2.0/CasinoService.csproj.CoreCompileInputs.cache
+/Revature/jermaine.code/CasinoProject/CasinoService/obj/Debug/netcoreapp2.0/CasinoService.AssemblyInfoInputs.cache
+/Revature/jermaine.code/CasinoProject/CasinoService/obj/Debug/netcoreapp2.0/CasinoService.dll
+/Revature/jermaine.code/CasinoProject/CasinoService/obj/Debug/netcoreapp2.0/CasinoService.pdb

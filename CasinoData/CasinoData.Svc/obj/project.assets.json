@@ -12573,11 +12573,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Revature/jermaine.code/CasinoData/CasinoData.Svc/CasinoData.Svc.csproj",
+      "projectUniqueName": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/CasinoData.Svc.csproj",
       "projectName": "CasinoData.Svc",
-      "projectPath": "/Revature/jermaine.code/CasinoData/CasinoData.Svc/CasinoData.Svc.csproj",
+      "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/CasinoData.Svc.csproj",
       "packagesPath": "/Users/jermaineoliver/.nuget/packages/",
-      "outputPath": "/Revature/jermaine.code/CasinoData/CasinoData.Svc/obj/",
+      "outputPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -12594,8 +12594,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "/Revature/jermaine.code/CasinoData/CasinoData.Db/CasinoData.Db.csproj": {
-              "projectPath": "/Revature/jermaine.code/CasinoData/CasinoData.Db/CasinoData.Db.csproj"
+            "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj": {
+              "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj"
             }
           }
         }

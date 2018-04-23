@@ -12541,11 +12541,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Revature/jermaine.code/CasinoService/CasinoService.csproj",
+      "projectUniqueName": "/Revature/jermaine.code/CasinoProject/CasinoService/CasinoService.csproj",
       "projectName": "CasinoService",
-      "projectPath": "/Revature/jermaine.code/CasinoService/CasinoService.csproj",
+      "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoService/CasinoService.csproj",
       "packagesPath": "/Users/jermaineoliver/.nuget/packages/",
-      "outputPath": "/Revature/jermaine.code/CasinoService/obj/",
+      "outputPath": "/Revature/jermaine.code/CasinoProject/CasinoService/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

@@ -12547,11 +12547,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Revature/jermaine.code/CasinoData/CasinoData.Db/CasinoData.Db.csproj",
+      "projectUniqueName": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj",
       "projectName": "CasinoData.Db",
-      "projectPath": "/Revature/jermaine.code/CasinoData/CasinoData.Db/CasinoData.Db.csproj",
+      "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj",
       "packagesPath": "/Users/jermaineoliver/.nuget/packages/",
-      "outputPath": "/Revature/jermaine.code/CasinoData/CasinoData.Db/obj/",
+      "outputPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
