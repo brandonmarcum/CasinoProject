@@ -1,34 +1,52 @@
 @model Casino.Client.Models.SlotsViewModel
-
-
 @*@await Html.PartialAsync("UserBet.cshtml", @Model);*@
 
 
 @using (@Html.BeginForm())
 {
-    <main>
+    if (ViewData["game"].Equals("bet"))
+    {
+        @await Html.PartialAsync("UserBet.cshtml", @Model);
+        <button type="submit" name="submitButton" value="bet">Place Bet</button>
+    }
+    else
+    {
+        <main>
             <header class="col-md-3"></header>
             <header class="col-md-6 content">
                 <p>Playing Slots!</p>
                 <p>@ViewData["status"]</p>
-                <p>Slot 1: @ViewData["left"]</p>
-                <p>Slot 2: @ViewData["middle"]</p>
-                <p>Slot 3: @ViewData["right"]</p>
+                <p>Slot 1: @SlotsViewModel.Slots.left</p>
+                <p>Slot 2: @SlotsViewModel.Slots.middle</p>
+                <p>Slot 3: @SlotsViewModel.Slots.right</p>
 
 
-                @if (Model.Slots.status.Equals("playing"))
+                @if (SlotsViewModel.Slots.status.Equals("playing"))
                 {
-                <button type="submit" name="submitButton" value="run">Run!</button>
-                <button type="submit" name="submitButton" value="stop">Stop</button>
+                    @if(SlotsViewModel.Slots.left == 0)
+                    {
+                        <button type="submit" name="submitButton" value="left">Hit</button>
+                    }
+
+                    @if(SlotsViewModel.Slots.middle == 0)
+                    {
+                        <button type="submit" name="submitButton" value="middle">Hit</button>
+                    }
+
+                    @if(SlotsViewModel.Slots.right == 0)
+                    {
+                        <button type="submit" name="submitButton" value="right">Hit</button>
+                    }
                 }
                 else
                 {
-                <button type="submit" name="submitButton" value="play">Play Again</button>
+                    <button type="submit" name="submitButton" value="play">Play Again</button>
                 }
 
             </header>
             <header class="col-md-3"></header>
         </main>
 
+    }
 }
 

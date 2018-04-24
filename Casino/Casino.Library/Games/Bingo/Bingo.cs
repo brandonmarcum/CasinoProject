@@ -12,7 +12,19 @@ namespace Casino.Library.Games.Bingo
         public BingoCard bingoCard;
         public string status;
         public List<int> usedNumbers;
+        public int numberChosen;
         public Pocket GamePocket { get; set; }
+
+        public Bingo()
+        {
+            chipLimit = 32;
+            bingoCard = new BingoCard();
+            status = "playing";
+            usedNumbers = new List<int>();
+            GamePocket = new Pocket();
+            GamePocket.AllChips = new List<Chips>();
+            numberChosen = 0;
+        }
 
         public Bingo(int chips)
         {
@@ -41,6 +53,8 @@ namespace Casino.Library.Games.Bingo
                 }
 
             } while (!unique);
+
+            numberChosen = number;
 
             return number;
         }
