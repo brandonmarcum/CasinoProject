@@ -10,13 +10,12 @@ namespace CasinoData.Db
     {
         public Chips()
         {
-            Pockets = new HashSet<Pockets>();
+            //Pockets = new HashSet<Pockets>();
         }
         [Key]
         public int ChipsId { get; set; }
         public int Amount { get; set; }
         public string Type { get; set; }
-        [NotMapped]
-        public ICollection<Pockets> Pockets { get; set; }
+        //public ICollection<Pockets> Pockets { get; set; }
     }
 }

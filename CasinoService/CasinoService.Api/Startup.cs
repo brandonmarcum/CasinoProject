@@ -40,6 +40,7 @@ namespace CasinoService.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseCors("allowAll");
             app.UseSession();
             app.UseMvc();
             
