@@ -10,6 +10,7 @@ using Casino.Library;
 //my change hello
 namespace Casino.Client.Controllers
 {
+    [Produces("application/json")]   
     public class UserController : Controller
     {
         public IActionResult Index()
@@ -21,6 +22,12 @@ namespace Casino.Client.Controllers
         public IActionResult Login()
         {
             return View();
+        }
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index","Home");
         }
         [HttpPost]
         public IActionResult Login(string username, string password, string submitButton)
@@ -54,30 +61,22 @@ namespace Casino.Client.Controllers
             HttpContext.Session.Set<User>("currentUser", newUser);
             return RedirectToAction("Index", "Home");
         }
+        [Route("/user/userprofile")]
+        [HttpGet]
         public IActionResult UserProfile()
         {
             User newUser = new User();
-
             try{
 				 newUser = HttpContext.Session.Get<User>("currentUser");
 				 newUser.Equals("check");
 			 }
 			 catch
 			 {
-				 return RedirectToAction("Login", "User");
+				 return RedirectToAction("Error", "User");
 			 }
-             UserProfileViewModel uvm = new UserProfileViewModel();
-             uvm.User = newUser;
-             uvm.username = newUser.Username;
-             uvm.Orange = uvm.User.UserPocket.AllChips[0].Amount;
-             uvm.Purple = uvm.User.UserPocket.AllChips[1].Amount;
-             uvm.Black = uvm.User.UserPocket.AllChips[2].Amount;
-             uvm.Green = uvm.User.UserPocket.AllChips[3].Amount;
-             uvm.Blue = uvm.User.UserPocket.AllChips[4].Amount;
-             uvm.Red = uvm.User.UserPocket.AllChips[5].Amount;
-             uvm.White = uvm.User.UserPocket.AllChips[6].Amount;
-
-            return View(uvm);
+            
+            return Redirect("http://localhost:4200?username="+newUser.Username);
+            
         }
         public IActionResult Register()
         {
@@ -92,6 +91,22 @@ namespace Casino.Client.Controllers
         public IActionResult Error()
         {
             return View();
+        }
+        [Route("/user/getuser")]
+        public User GetUser()
+        {
+            User newUser = new User();
+            // try{
+			// 	 newUser = HttpContext.Session.Get<User>("currentUser");
+			// 	 newUser.Equals("check");
+			//  }
+			//  catch
+			//  {
+			// 	 return (new User(){ Name = "falseuser" });
+			//  }
+            newUser = HttpContext.Session.Get<User>("currentUser");
+
+            return newUser;
         }
     }
 }

@@ -27,8 +27,6 @@ namespace CasinoData.Svc.Controllers
             casinodbContext cc = new casinodbContext();
             //Users user = UserHelper.GetUserAsync().GetAwaiter().GetResult();
 
-            Console.WriteLine("Reached Data UserController with user: " + username);
-
             Users user = new Users();
             
            // user = cc.Users.Where( u => u.Username == username).FirstOrDefault();
@@ -36,6 +34,7 @@ namespace CasinoData.Svc.Controllers
             //user.Name = "falseuser";
             //if(uc.Users.ToList().Count > 0)
             //{
+            user.Name = "falseuser";
             if(cc.Users.Count() > 0)
             {
                 foreach(var item in cc.Users.ToList())
@@ -44,16 +43,9 @@ namespace CasinoData.Svc.Controllers
                     {
                         user = item;
                     }
-                    else 
-                    {
-                        user.Name = "falseuser";
-                    }
                 }
             }
-            else
-            {
-                user.Name = "falseuser";
-            }
+       
             User verifiedUser = new User();
 
             verifiedUser.Username = user.Username;
@@ -64,6 +56,54 @@ namespace CasinoData.Svc.Controllers
             
 
             return await Task.Run(() => verifiedUser);
+        }
+        [HttpGet("{username}")]
+        [ActionName("datauserprofileget")]
+        [Route("api/user/datauserprofileget/{username}")]
+        public User UserGet(string username)
+        {
+            //Get user from DB using EF DBContext, pass it through
+            //Populate the User Pocket by using the UserPocketID foreign key together with Pocket DBContext
+            //Finally, get user Chips using Pocket table reference ChipsID foreign key and add it to user object 
+
+            UserContext uc = new UserContext();
+            PocketContext pc = new PocketContext();
+            //ChipsContext cc = new ChipsContext();
+            casinodbContext cc = new casinodbContext();
+            //Users user = UserHelper.GetUserAsync().GetAwaiter().GetResult();
+
+            Console.WriteLine("Post with angular reached with " + username);
+
+            Users user = new Users();
+            
+           // user = cc.Users.Where( u => u.Username == username).FirstOrDefault();
+            
+            //user.Name = "falseuser";
+            //if(uc.Users.ToList().Count > 0)
+            //{
+            user.Name = "falseuser";
+            if(cc.Users.Count() > 0)
+            {
+                foreach(var item in cc.Users.ToList())
+                {
+                    if(username.Equals(item.Username))
+                    {
+                        user = item;
+                        user.Name = item.Name;
+                    }
+                }
+            }
+            
+            User verifiedUser = new User();
+
+            verifiedUser.Username = user.Username;
+            verifiedUser.Name = user.Name;
+            verifiedUser.Age = user.Age;
+            verifiedUser.Email = user.Email;
+            verifiedUser.Password = user.Password;
+            
+
+            return verifiedUser;
         }
         [HttpPost]
         [ActionName("datauserregister")]

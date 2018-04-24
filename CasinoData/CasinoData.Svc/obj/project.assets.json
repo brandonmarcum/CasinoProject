@@ -12567,40 +12567,35 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Bmarc\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "/Users/jermaineoliver/.nuget/packages/": {},
+    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Svc\\CasinoData.Svc.csproj",
+      "projectUniqueName": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/CasinoData.Svc.csproj",
       "projectName": "CasinoData.Svc",
-      "projectPath": "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Svc\\CasinoData.Svc.csproj",
-      "packagesPath": "C:\\Users\\Bmarc\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Svc\\obj\\",
+      "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/CasinoData.Svc.csproj",
+      "packagesPath": "/Users/jermaineoliver/.nuget/packages/",
+      "outputPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Svc/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Bmarc\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.Fallback.config"
+        "/Users/jermaineoliver/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj": {
-              "projectPath": "C:\\Users\\Bmarc\\source\\repos\\CasinoProject\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj"
+            "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj": {
+              "projectPath": "/Revature/jermaine.code/CasinoProject/CasinoData/CasinoData.Db/CasinoData.Db.csproj"
             }
           }
         }

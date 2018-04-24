@@ -4,6 +4,9 @@ import { UserComponent } from '../User/user.component';
 
 
 import { AppComponent } from './app.component';
+import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClientModule } from '@angular/common/http';
+import { UserProfileService } from './user-profile.service';
 
 
 @NgModule({
@@ -12,9 +15,16 @@ import { AppComponent } from './app.component';
     UserComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
-  providers: [],
+  exports: [
+    AppComponent
+  ],
+  providers: [
+    UserProfileService,
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
