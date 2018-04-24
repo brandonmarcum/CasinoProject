@@ -3,11 +3,9 @@
 
 @using (@Html.BeginForm())
 {
-<main>
 
-    @if (ViewData["game"].Equals("bet"))
+    if (ViewData["game"].Equals("bet"))
     {
-
     @await Html.PartialAsync("UserBet.cshtml", @Model);
     <button type="submit" name="submitButton" value="bet">Place Bet</button>
     }
@@ -32,7 +30,5 @@
     </header>
     <header class="col-md-3"></header>
     }
-
-</main>
 
 }

@@ -10,7 +10,7 @@ namespace Casino.Client.Models
 {
     public class BingoViewModel
     {
-        public Bingo bingo { get; set; }
+        public static Bingo bingo { get; set; }
         public User User { get; set; }
         public string status { get; set; }
         public string RequestId { get; set; }
@@ -19,7 +19,6 @@ namespace Casino.Client.Models
         public IDictionary<string, int> Bet { get; set; }
         public BingoViewModel()
         {
-            bingo = new Bingo(40);
             User = new User();
             Bet = new Dictionary<string, int>();
         }

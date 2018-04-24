@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Casino.Client.Models;
 using Casino.Library.Games;
 using Casino.Library.Models;
+using Casino.Library.Games.Bingo;
+using Casino.Library.Games.ChickenFight;
 using Microsoft.AspNetCore.Http;
 
 namespace Casino.Client.Controllers
@@ -160,6 +162,25 @@ namespace Casino.Client.Controllers
             return View(model);
         }
 
+        public IActionResult RockPaperScissors()
+        {
+            RPSViewModel model = new RPSViewModel();
+            User newUser = new User();
+
+            try
+            {
+                newUser = HttpContext.Session.Get<User>("currentUser");
+                newUser.Equals("check");
+            }
+            catch
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            ViewData["game"] = "bet";
+
+            return View(model);
+        }
 
         [HttpPost]
         public IActionResult RockPaperScissors(RPSViewModel model, IFormCollection collection, string submitButton)
@@ -232,17 +253,23 @@ namespace Casino.Client.Controllers
         [HttpGet]
         public IActionResult Slots()
         {
+            SlotsViewModel.Slots = new Slots();
+            SlotsViewModel model = new SlotsViewModel();
             User newUser = new User();
 
-            try{
-				 newUser = HttpContext.Session.Get<User>("currentUser");
-				 newUser.Equals("check");
-			 }
-			 catch
-			 {
-				 return RedirectToAction("Login", "User");
-			 }
-            return View(new SlotsViewModel());
+            try
+            {
+                newUser = HttpContext.Session.Get<User>("currentUser");
+                newUser.Equals("check");
+            }
+            catch
+            {
+                return RedirectToAction("Login", "User");
+            }
+
+            ViewData["game"] = "bet";
+
+            return View(model);
         }
         [HttpPost]
         public IActionResult Slots(SlotsViewModel model, IFormCollection collection, string submitButton)
@@ -256,16 +283,16 @@ namespace Casino.Client.Controllers
                 int intThrow;
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
-                    model.Slots.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                    SlotsViewModel.Slots.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
                 }
             }
 
-            ch.pocketSubtraction(model.User.UserPocket, model.Slots.GamePocket);
+            ch.pocketSubtraction(model.User.UserPocket, SlotsViewModel.Slots.GamePocket);
 
 
             if (submitButton.Equals("bet"))
             {
-                foreach (var item in model.Slots.GamePocket.AllChips)
+                foreach (var item in SlotsViewModel.Slots.GamePocket.AllChips)
                 {
                     if (item.Amount > 0)
                     {
@@ -287,7 +314,7 @@ namespace Casino.Client.Controllers
             try
             {
             model = TempData.Get<SlotsViewModel>("slots");
-            string k = model.Slots.status;
+            string k = SlotsViewModel.Slots.status;
             }
             catch
             {
@@ -296,23 +323,50 @@ namespace Casino.Client.Controllers
 
             //ViewData["userChips"] = newUser.UserPocket.AllChips;
 
-            ViewData["left"] = model.Slots.left;
-            ViewData["middle"] = model.Slots.middle;
-            ViewData["right"] = model.Slots.right;
+            ViewData["left"] = SlotsViewModel.Slots.left;
+            ViewData["middle"] = SlotsViewModel.Slots.middle;
+            ViewData["right"] = SlotsViewModel.Slots.right;
 
-            if(submitButton.Equals("run"))
+            if(submitButton.Equals("left"))
             {
-                model.Slots.SetSlots();
+                SlotsViewModel.Slots.SetLeft();
             }
-            if(submitButton.Equals("stop"))
+            if (submitButton.Equals("middle"))
             {
-                model.Slots.StopPlaying();
+                SlotsViewModel.Slots.SetMiddle();
             }
-            ViewData["status"] = model.Slots.status;
+            if (submitButton.Equals("right"))
+            {
+                SlotsViewModel.Slots.SetRight();
+            }
+            if (submitButton.Equals("play"))
+            {
+                SlotsViewModel.Slots = new Slots();
+                SlotsViewModel x = new SlotsViewModel();
+                User newUser = new User();
+
+                try
+                {
+                    newUser = HttpContext.Session.Get<User>("currentUser");
+                    newUser.Equals("check");
+                }
+                catch
+                {
+                    return RedirectToAction("Login", "User");
+                }
+
+                ViewData["game"] = "bet";
+
+                return View(x);
+            }
+
+            if(SlotsViewModel.Slots.left != 0 && SlotsViewModel.Slots.middle != 0 && SlotsViewModel.Slots.right != 0)
+                SlotsViewModel.Slots.status = SlotsViewModel.Slots.CheckForMatch();
+
+            ViewData["status"] = SlotsViewModel.Slots.status;
 
 
-            ViewData["game"] = model.Slots.status;
-            HttpContext.Session.Set<IDictionary<string, int>>("bet", model.Bet);
+            ViewData["game"] = SlotsViewModel.Slots.status;
             return View(model);
         }
 
@@ -320,6 +374,8 @@ namespace Casino.Client.Controllers
         [HttpGet]
         public IActionResult RussianRoulette()
         {
+            RRViewModel.rr = new RussianRoulette();
+            RRViewModel model = new RRViewModel();
             User newUser = new User();
 
             try{
@@ -330,7 +386,10 @@ namespace Casino.Client.Controllers
 			 {
 				 return RedirectToAction("Login", "User");
 			 }
-            return View(new RRViewModel());
+
+            ViewData["game"] = "bet";
+
+            return View(model);
         }
         [HttpPost]
         public IActionResult RussianRoulette(RRViewModel model, IFormCollection collection, string submitButton)
@@ -345,16 +404,16 @@ namespace Casino.Client.Controllers
                 int intThrow;
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
-                    model.rr.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                    RRViewModel.rr.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
                 }
             }
 
-            ch.pocketSubtraction(model.User.UserPocket, model.rr.GamePocket);
+            ch.pocketSubtraction(model.User.UserPocket, RRViewModel.rr.GamePocket);
 
 
             if (submitButton.Equals("bet"))
             {
-                foreach (var item in model.rr.GamePocket.AllChips)
+                foreach (var item in RRViewModel.rr.GamePocket.AllChips)
                 {
                     if (item.Amount > 0)
                     {
@@ -376,46 +435,58 @@ namespace Casino.Client.Controllers
 
             if (submitButton == "fire")
             {
-                model.rr.NextTurn();
+                RRViewModel.rr.NextTurn();
                 
 
-                ViewData["game"] = model.rr.status;
-                if(model.rr.PlayerGun[model.rr.turn - 1])
+                ViewData["game"] = RRViewModel.rr.status;
+                if(RRViewModel.rr.PlayerGun[RRViewModel.rr.turn - 1])
                     ViewData["you"] = "BANG!";
                 else
                     ViewData["you"] = "*click*";
 
-                if (model.rr.OpponentGun[model.rr.turn - 1])
+                if (RRViewModel.rr.OpponentGun[RRViewModel.rr.turn - 1])
                     ViewData["they"] = "BANG!";
                 else
                     ViewData["they"] = "*click*";
 
-                ViewData["turn"] = model.rr.turn.ToString();
+                ViewData["turn"] = RRViewModel.rr.turn.ToString();
             }
             if (submitButton == "leave")
             {
-                model.rr.PlayerLeave();
+                RRViewModel.rr.PlayerLeave();
             }
 
-            ViewData["game"] = model.rr.status;
+            ViewData["game"] = RRViewModel.rr.status;
             HttpContext.Session.Set<IDictionary<string, int>>("bet", model.Bet);
 
             if (submitButton.Equals("play"))
             {
-                model.rr = new RussianRoulette();
+                RRViewModel.rr = new RussianRoulette();
+                RRViewModel x = new RRViewModel();
+                User newUser = new User();
+
+                try
+                {
+                    newUser = HttpContext.Session.Get<User>("currentUser");
+                    newUser.Equals("check");
+                }
+                catch
+                {
+                    return RedirectToAction("Login", "User");
+                }
+
                 ViewData["game"] = "bet";
-                return View(new RRViewModel());
+
+                return View(x);
             }
-
-            TempData.Put("model", model);
-
-            HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
 
             return View(model);
         }
         [HttpGet]
         public IActionResult ChickenFight()
         {
+            CFViewModel.fight = new Fight();
+            CFViewModel model = new CFViewModel();
             User newUser = new User();
 
             try{
@@ -426,7 +497,10 @@ namespace Casino.Client.Controllers
 			 {
 				 return RedirectToAction("Login", "User");
 			 }
-            return View(new CFViewModel());
+
+            ViewData["game"] = "bet";
+
+            return View(model);
         }
         [HttpPost]
         public IActionResult ChickenFight(CFViewModel model, IFormCollection collection, string submitButton)
@@ -441,16 +515,16 @@ namespace Casino.Client.Controllers
                 int intThrow;
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
-                    model.fight.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                    CFViewModel.fight.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
                 }
             }
 
-            ch.pocketSubtraction(model.User.UserPocket, model.fight.GamePocket);
+            ch.pocketSubtraction(model.User.UserPocket, CFViewModel.fight.GamePocket);
 
 
             if (submitButton.Equals("bet"))
             {
-                foreach (var item in model.fight.GamePocket.AllChips)
+                foreach (var item in CFViewModel.fight.GamePocket.AllChips)
                 {
                     if (item.Amount > 0)
                     {
@@ -471,32 +545,46 @@ namespace Casino.Client.Controllers
 
 
             if (submitButton == "chickenA")
-                model.fight.PlaceBetA();
+                CFViewModel.fight.PlaceBetA();
             if (submitButton == "chickenB")
-                model.fight.PlaceBetB();
+                CFViewModel.fight.PlaceBetB();
             if (submitButton == "chickenA" || submitButton == "chickenB")
             {
-                model.fight.Engage();
+                CFViewModel.fight.Engage();
             }
 
-            ViewData["game"] = model.fight.status;
+            ViewData["game"] = CFViewModel.fight.status;
             HttpContext.Session.Set<IDictionary<string, int>>("bet", model.Bet);
 
             if (submitButton.Equals("play"))
             {
-                return View(new CFViewModel());
-                //ViewData["game"] = "bet";
+                CFViewModel.fight = new Fight();
+                CFViewModel x = new CFViewModel();
+                User newUser = new User();
+
+                try
+                {
+                    newUser = HttpContext.Session.Get<User>("currentUser");
+                    newUser.Equals("check");
+                }
+                catch
+                {
+                    return RedirectToAction("Login", "User");
+                }
+                return View(x);
             }
 
-            TempData.Put("model", model);
+            //TempData.Put("model", model);
 
-            HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
+            //HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
 
             return View(model);
         }
         [HttpGet]
         public IActionResult Bingo()
         {
+            BingoViewModel.bingo = new Bingo();
+            BingoViewModel model = new BingoViewModel();
             User newUser = new User();
 
             try{
@@ -507,7 +595,10 @@ namespace Casino.Client.Controllers
 			 {
 				 return RedirectToAction("Login", "User");
 			 }
-            return View(new BingoViewModel());
+
+            ViewData["game"] = "bet";
+
+            return View(model);
         }
         [HttpPost]
         public IActionResult Bingo(BingoViewModel model, IFormCollection collection, string submitButton)
@@ -521,16 +612,16 @@ namespace Casino.Client.Controllers
                 int intThrow;
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
-                    model.bingo.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                    BingoViewModel.bingo.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
                 }
             }
 
-            ch.pocketSubtraction(model.User.UserPocket, model.bingo.GamePocket);
+            ch.pocketSubtraction(model.User.UserPocket, BingoViewModel.bingo.GamePocket);
 
 
             if (submitButton.Equals("bet"))
             {
-                foreach (var item in model.bingo.GamePocket.AllChips)
+                foreach (var item in BingoViewModel.bingo.GamePocket.AllChips)
                 {
                     if (item.Amount > 0)
                     {
@@ -552,19 +643,32 @@ namespace Casino.Client.Controllers
 
             if (submitButton == "start")
             {
-                model.bingo.CommenceGame();
+                BingoViewModel.bingo.CommenceGame();
             }
 
-            ViewData["game"] = model.bingo.status;
+            ViewData["game"] = BingoViewModel.bingo.status;
             HttpContext.Session.Set<IDictionary<string, int>>("bet", model.Bet);
 
             if (submitButton.Equals("play"))
             {
-                return View(new BingoViewModel());
-                //ViewData["game"] = "bet";
+                BingoViewModel.bingo = new Bingo();
+                BingoViewModel x = new BingoViewModel();
+                User newUser = new User();
+
+                try
+                {
+                    newUser = HttpContext.Session.Get<User>("currentUser");
+                    newUser.Equals("check");
+                }
+                catch
+                {
+                    return RedirectToAction("Login", "User");
+                }
+                return View(x);
             }
 
-            ViewData["game"] = model.bingo.status;
+            ViewData["game"] = BingoViewModel.bingo.status;
+            ViewData["roll"] = BingoViewModel.bingo.numberChosen;
 
             TempData.Put("model", model);
 

@@ -5,8 +5,14 @@
     <main>
         <header class="col-md-3"></header>
         <header class="col-md-6 content">
-
-            @if (Model.fight.status.Equals("choosing"))
+            @if (ViewData["game"].Equals("bet"))
+            {
+                @await Html.PartialAsync("UserBet.cshtml", @Model);
+                <button type="submit" name="submitButton" value="bet">Place Bet</button>
+            }
+            else
+            {
+            @if (CFViewModel.fight.status.Equals("choosing"))
             {
                 <table class="col-md-12 content">
                     <tr>
@@ -14,16 +20,16 @@
                         <td>Chicken B</td>
                     </tr>
                     <tr>
-                        <td>Health: @Model.fight.chickenA.Health</td>
-                        <td>Health: @Model.fight.chickenB.Health</td>
+                        <td>Health: @CFViewModel.fight.chickenA.Health</td>
+                        <td>Health: @CFViewModel.fight.chickenB.Health</td>
                     </tr>
                     <tr>
-                        <td>Attack: @Model.fight.chickenA.Attack</td>
-                        <td>Attack: @Model.fight.chickenB.Attack</td>
+                        <td>Attack: @CFViewModel.fight.chickenA.Attack</td>
+                        <td>Attack: @CFViewModel.fight.chickenB.Attack</td>
                     </tr>
                     <tr>
-                        <td>Evasion: @Model.fight.chickenA.Evasion</td>
-                        <td>Evasion: @Model.fight.chickenB.Evasion</td>
+                        <td>Evasion: @CFViewModel.fight.chickenA.Evasion</td>
+                        <td>Evasion: @CFViewModel.fight.chickenB.Evasion</td>
                     </tr>
                 </table>
                 <button type="submit" name="submitButton" value="chickenA">Bet On A</button>
@@ -31,10 +37,11 @@
             }
             else
             {
-                <p>@Model.fight.status</p>
-                <p>Chicken A's Health: @Model.fight.chickenA.Health</p>
-                <p>Chicken B's Health: @Model.fight.chickenB.Health</p>
+                <p>@CFViewModel.fight.status</p>
+                <p>Chicken A's Health: @CFViewModel.fight.chickenA.Health</p>
+                <p>Chicken B's Health: @CFViewModel.fight.chickenB.Health</p>
                 <button type="submit" name="submitButton" value="play">Play Again</button>
+            }
             }
         </header>
         <header class="col-md-3"></header>

@@ -4,9 +4,9 @@
 @using (@Html.BeginForm())
 {
 
-    @if(ViewData["game"].Equals("bet"))
+    if(ViewData["game"].Equals("bet"))
     {
-        await Html.PartialAsync("UserBet.cshtml", @Model);
+        @await Html.PartialAsync("UserBet.cshtml", @Model);
         <button type="submit" name="submitButton" value="bet">Place Bet</button>
     }
     else
@@ -19,20 +19,20 @@
                 <p>Dealer Score: @Model.Blackjack.dealerTotal</p>
                 <p>Your Bet: </p>
 
-                @foreach(var item in @Model.Bet.Keys)
-                {
-                    <p>@item.ToString() @Model.Bet[@item]</p> 
-                }
+                @foreach (var item in @Model.Bet.Keys)
+    {
+            <p>@item.ToString() @Model.Bet[@item]</p>
+}
 
                 @if (Model.Blackjack.status.Equals("playing"))
-                {
-                    <button type="submit" name="submitButton" value="hit">Hit Me</button>
-                    <button type="submit" name="submitButton" value="stand">Stand</button>
-                }
-                else
-                {
-                    <button type="submit" name="submitButton" value="play">Play Again</button>
-                }
+    {
+            <button type="submit" name="submitButton" value="hit">Hit Me</button>
+            <button type="submit" name="submitButton" value="stand">Stand</button>
+}
+else
+{
+            <button type="submit" name="submitButton" value="play">Play Again</button>
+}
             </header>
             <header class="col-md-3"></header>
         </main>
