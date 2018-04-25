@@ -77,7 +77,14 @@ namespace Casino.Client.Controllers
 			 {
 				 return RedirectToAction("Login", "User");
 			 }
-
+             try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
+            //HttpContext.Session.Set<User>("currentUser", model.User);
             ViewData["game"] = "bet";
 
             return View(model);
@@ -91,6 +98,15 @@ namespace Casino.Client.Controllers
             model = new BlackJackViewModel();
 
             ChipHelper ch = new ChipHelper();
+
+             
+             try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
             
             foreach(var item in (new Pocket()).AllChips)
             {
@@ -98,10 +114,18 @@ namespace Casino.Client.Controllers
 				if (Int32.TryParse(collection[item.Type], out intThrow))
 				{
 					model.Blackjack.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                    try
+                    {
+                        HttpContext.Session.Get<List<Chips>>("gamechips").Count();
+                    }
+                    catch
+                    {
+                        HttpContext.Session.Set<List<Chips>>("gamechips", model.Blackjack.GamePocket.AllChips);
+                    }
 				}
             }
 
-            ch.pocketSubtraction(model.User.UserPocket, model.Blackjack.GamePocket);
+            model.User.UserPocket = ch.pocketSubtraction(model.User.UserPocket, model.Blackjack.GamePocket);
 
             if(submitButton.Equals("bet"))
             {
@@ -112,10 +136,6 @@ namespace Casino.Client.Controllers
                         model.Bet.Add(item.Type, item.Amount); 
                     }
                 }
-                model.User.UserPocket.AllChips[0].Amount = 237; 
-                model.User.UserPocket.AllChips[1].Amount = 314;
-                model.User.UserPocket.AllChips[2].Amount = 5798;
-                model.User.UserPocket.AllChips[3].Amount = 221;
             }
             else{
                 model.Blackjack.playerTotal = HttpContext.Session.Get<int>("playerTotal");
@@ -143,8 +163,9 @@ namespace Casino.Client.Controllers
             }
             if(model.Blackjack.status.Equals("win"))
             {
-                ch.pocketAddition(model.User.UserPocket, model.Blackjack.GamePocket);
-                ch.pocketAddition(model.User.UserPocket, model.Blackjack.GamePocket);
+                model.Blackjack.GamePocket.AllChips = HttpContext.Session.Get<List<Chips>>("gamechips");
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, model.Blackjack.GamePocket);
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, model.Blackjack.GamePocket);
             }
 
             ViewData["game"] = model.Blackjack.status;
@@ -156,7 +177,7 @@ namespace Casino.Client.Controllers
                 HttpContext.Session.Set<int>("playerTotal", model.Blackjack.playerTotal);
                 HttpContext.Session.Set<int>("dealerTotal", model.Blackjack.dealerTotal);
             }
-
+            //HttpContext.Session.Set<User>("currentUser", model.User);
             HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
 
             return View(model);
@@ -176,6 +197,13 @@ namespace Casino.Client.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
+            try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
 
             ViewData["game"] = "bet";
 
@@ -189,16 +217,32 @@ namespace Casino.Client.Controllers
 
             ChipHelper ch = new ChipHelper();
 
+            try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
+
             foreach (var item in (new Pocket()).AllChips)
             {
                 int intThrow;
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
                     model.rps.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                     try
+                    {
+                        HttpContext.Session.Get<List<Chips>>("gamechips").Count();
+                    }
+                    catch
+                    {
+                        HttpContext.Session.Set<List<Chips>>("gamechips", model.rps.GamePocket.AllChips);
+                    }
                 }
             }
 
-            ch.pocketSubtraction(model.User.UserPocket, model.rps.GamePocket);
+            model.User.UserPocket = ch.pocketSubtraction(model.User.UserPocket, model.rps.GamePocket);
 
 
             if (submitButton.Equals("bet"))
@@ -210,10 +254,6 @@ namespace Casino.Client.Controllers
                         model.Bet.Add(item.Type, item.Amount);
                     }
                 }
-                model.User.UserPocket.AllChips[0].Amount = 237;
-                model.User.UserPocket.AllChips[1].Amount = 314;
-                model.User.UserPocket.AllChips[2].Amount = 5798;
-                model.User.UserPocket.AllChips[3].Amount = 221;
             }
             else
             {
@@ -238,12 +278,16 @@ namespace Casino.Client.Controllers
             if (submitButton.Equals("play"))
             {
                 model.rps = new RockPaperScissors();
-                ViewData["game"] = "bet";
+                //ViewData["game"] = "bet";
                 model.rps.status = "playing";
                 return View(new RPSViewModel());
             }
-
-            TempData.Put("model", model);
+            if(model.rps.status.Equals("win"))
+            {
+                model.rps.GamePocket.AllChips = HttpContext.Session.Get<List<Chips>>("gamechips");
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, model.rps.GamePocket);
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, model.rps.GamePocket);
+            }
 
             HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
 
@@ -266,6 +310,13 @@ namespace Casino.Client.Controllers
             {
                 return RedirectToAction("Login", "User");
             }
+            try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
 
             ViewData["game"] = "bet";
 
@@ -277,6 +328,13 @@ namespace Casino.Client.Controllers
             model = new SlotsViewModel();
 
             ChipHelper ch = new ChipHelper();
+            try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
 
             foreach (var item in (new Pocket()).AllChips)
             {
@@ -284,6 +342,14 @@ namespace Casino.Client.Controllers
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
                     SlotsViewModel.Slots.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                     try
+                    {
+                        HttpContext.Session.Get<List<Chips>>("gamechips").Count();
+                    }
+                    catch
+                    {
+                        HttpContext.Session.Set<List<Chips>>("gamechips", SlotsViewModel.Slots.GamePocket.AllChips);
+                    }
                 }
             }
 
@@ -299,15 +365,10 @@ namespace Casino.Client.Controllers
                         model.Bet.Add(item.Type, item.Amount);
                     }
                 }
-                model.User.UserPocket.AllChips[0].Amount = 237;
-                model.User.UserPocket.AllChips[1].Amount = 314;
-                model.User.UserPocket.AllChips[2].Amount = 5798;
-                model.User.UserPocket.AllChips[3].Amount = 221;
             }
             else
             {
                 model.Bet = HttpContext.Session.Get<IDictionary<string, int>>("bet");
-
                 model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
             }
 
@@ -319,6 +380,12 @@ namespace Casino.Client.Controllers
             catch
             {
                 model = new SlotsViewModel();
+            }
+            if(SlotsViewModel.Slots.status.Equals("win"))
+            {
+                SlotsViewModel.Slots.GamePocket.AllChips = HttpContext.Session.Get<List<Chips>>("gamechips");
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, SlotsViewModel.Slots.GamePocket);
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, SlotsViewModel.Slots.GamePocket);
             }
 
             //ViewData["userChips"] = newUser.UserPocket.AllChips;
@@ -342,7 +409,7 @@ namespace Casino.Client.Controllers
             if (submitButton.Equals("play"))
             {
                 SlotsViewModel.Slots = new Slots();
-                SlotsViewModel x = new SlotsViewModel();
+                model = new SlotsViewModel();
                 User newUser = new User();
 
                 try
@@ -354,17 +421,19 @@ namespace Casino.Client.Controllers
                 {
                     return RedirectToAction("Login", "User");
                 }
+                //put in chips
+                
 
-                ViewData["game"] = "bet";
+                //ViewData["game"] = "bet";
 
-                return View(x);
+                return View(model);
             }
 
             if(SlotsViewModel.Slots.left != 0 && SlotsViewModel.Slots.middle != 0 && SlotsViewModel.Slots.right != 0)
                 SlotsViewModel.Slots.status = SlotsViewModel.Slots.CheckForMatch();
 
             ViewData["status"] = SlotsViewModel.Slots.status;
-
+            //HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
 
             ViewData["game"] = SlotsViewModel.Slots.status;
             return View(model);
@@ -386,6 +455,13 @@ namespace Casino.Client.Controllers
 			 {
 				 return RedirectToAction("Login", "User");
 			 }
+             try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
 
             ViewData["game"] = "bet";
 
@@ -405,6 +481,14 @@ namespace Casino.Client.Controllers
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
                     RRViewModel.rr.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                     try
+                    {
+                        HttpContext.Session.Get<List<Chips>>("gamechips").Count();
+                    }
+                    catch
+                    {
+                        HttpContext.Session.Set<List<Chips>>("gamechips", RRViewModel.rr.GamePocket.AllChips);
+                    }
                 }
             }
 
@@ -420,10 +504,6 @@ namespace Casino.Client.Controllers
                         model.Bet.Add(item.Type, item.Amount);
                     }
                 }
-                model.User.UserPocket.AllChips[0].Amount = 237;
-                model.User.UserPocket.AllChips[1].Amount = 314;
-                model.User.UserPocket.AllChips[2].Amount = 5798;
-                model.User.UserPocket.AllChips[3].Amount = 221;
             }
             else
             {
@@ -477,7 +557,17 @@ namespace Casino.Client.Controllers
 
                 ViewData["game"] = "bet";
 
+                //chips
+                HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
+
+
                 return View(x);
+            }
+            if(RRViewModel.rr.status.Equals("win"))
+            {
+                RRViewModel.rr.GamePocket.AllChips = HttpContext.Session.Get<List<Chips>>("gamechips");
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, RRViewModel.rr.GamePocket);
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, RRViewModel.rr.GamePocket);
             }
 
             return View(model);
@@ -497,6 +587,13 @@ namespace Casino.Client.Controllers
 			 {
 				 return RedirectToAction("Login", "User");
 			 }
+             try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
 
             ViewData["game"] = "bet";
 
@@ -510,12 +607,28 @@ namespace Casino.Client.Controllers
 
             ChipHelper ch = new ChipHelper();
 
+            try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
+
             foreach (var item in (new Pocket()).AllChips)
             {
                 int intThrow;
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
                     CFViewModel.fight.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                     try
+                    {
+                        HttpContext.Session.Get<List<Chips>>("gamechips").Count();
+                    }
+                    catch
+                    {
+                        HttpContext.Session.Set<List<Chips>>("gamechips", CFViewModel.fight.GamePocket.AllChips);
+                    }
                 }
             }
 
@@ -531,10 +644,7 @@ namespace Casino.Client.Controllers
                         model.Bet.Add(item.Type, item.Amount);
                     }
                 }
-                model.User.UserPocket.AllChips[0].Amount = 237;
-                model.User.UserPocket.AllChips[1].Amount = 314;
-                model.User.UserPocket.AllChips[2].Amount = 5798;
-                model.User.UserPocket.AllChips[3].Amount = 221;
+
             }
             else
             {
@@ -571,12 +681,18 @@ namespace Casino.Client.Controllers
                 {
                     return RedirectToAction("Login", "User");
                 }
+                
                 return View(x);
             }
-
+            if(CFViewModel.fight.status.Equals("win"))
+            {
+                CFViewModel.fight.GamePocket.AllChips = HttpContext.Session.Get<List<Chips>>("gamechips");
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, CFViewModel.fight.GamePocket);
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, CFViewModel.fight.GamePocket);
+            }
             //TempData.Put("model", model);
 
-            //HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
+            HttpContext.Session.Set<List<Chips>>("chips", model.User.UserPocket.AllChips);
 
             return View(model);
         }
@@ -595,6 +711,13 @@ namespace Casino.Client.Controllers
 			 {
 				 return RedirectToAction("Login", "User");
 			 }
+             try{
+                model.User.UserPocket.AllChips = HttpContext.Session.Get<List<Chips>>("chips");
+                model.User.UserPocket.AllChips[0].Amount.Equals(0);
+             }
+             catch{
+                 model.User.UserPocket.AllChips = (new User()).UserPocket.AllChips;
+             }
 
             ViewData["game"] = "bet";
 
@@ -613,6 +736,14 @@ namespace Casino.Client.Controllers
                 if (Int32.TryParse(collection[item.Type], out intThrow))
                 {
                     BingoViewModel.bingo.GamePocket.AllChips.Add(new Chips() { Amount = Int32.Parse(collection[item.Type]), Type = item.Type });
+                     try
+                    {
+                        HttpContext.Session.Get<List<Chips>>("gamechips").Count();
+                    }
+                    catch
+                    {
+                        HttpContext.Session.Set<List<Chips>>("gamechips", BingoViewModel.bingo.GamePocket.AllChips);
+                    }
                 }
             }
 
@@ -628,10 +759,6 @@ namespace Casino.Client.Controllers
                         model.Bet.Add(item.Type, item.Amount);
                     }
                 }
-                model.User.UserPocket.AllChips[0].Amount = 237;
-                model.User.UserPocket.AllChips[1].Amount = 314;
-                model.User.UserPocket.AllChips[2].Amount = 5798;
-                model.User.UserPocket.AllChips[3].Amount = 221;
             }
             else
             {
@@ -665,6 +792,12 @@ namespace Casino.Client.Controllers
                     return RedirectToAction("Login", "User");
                 }
                 return View(x);
+            }
+            if(BingoViewModel.bingo.status.Equals("win"))
+            {
+                BingoViewModel.bingo.GamePocket.AllChips = HttpContext.Session.Get<List<Chips>>("gamechips");
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, BingoViewModel.bingo.GamePocket);
+                model.User.UserPocket = ch.pocketAddition(model.User.UserPocket, BingoViewModel.bingo.GamePocket);
             }
 
             ViewData["game"] = BingoViewModel.bingo.status;
