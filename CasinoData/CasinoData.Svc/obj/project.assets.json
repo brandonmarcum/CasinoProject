@@ -12530,7 +12530,6 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "C:\\Users\\Bmarc\\Source\\Repos\\CasinoLast\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj",
       "Microsoft.AspNetCore.All >= 2.0.5",
       "Microsoft.EntityFrameWorkCore.Tools >= 2.0.2",
       "Microsoft.EntityFrameworkCore.Design >= 2.0.2",
@@ -12573,11 +12572,7 @@
       },
       "frameworks": {
         "netcoreapp2.0": {
-          "projectReferences": {
-            "C:\\Users\\Bmarc\\Source\\Repos\\CasinoLast\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj": {
-              "projectPath": "C:\\Users\\Bmarc\\Source\\Repos\\CasinoLast\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {
@@ -12630,16 +12625,5 @@
         "warn": true
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1104",
-      "level": "Error",
-      "message": "Unable to find project 'C:\\Users\\Bmarc\\Source\\Repos\\CasinoLast\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj'. Check that the project reference is valid and that the project file exists.",
-      "libraryId": "C:\\Users\\Bmarc\\Source\\Repos\\CasinoLast\\CasinoData\\CasinoData.Db\\CasinoData.Db.csproj",
-      "targetGraphs": [
-        ".NETCoreApp,Version=v2.0"
-      ]
-    }
-  ]
+  }
 }
