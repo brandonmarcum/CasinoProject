@@ -1,0 +1,55 @@
+@using Casino.Library.Models;
+@{
+    <main>
+    <aside class="col-md-1"></aside>
+    <header class="col-md-10 content">
+        <p>Bet Your Chips!</p>
+
+        <section class="col-md-12">
+            <article class="col-md-3"><h3>Available:</h3><br /><h3>Bet:</h3></article>
+                @foreach (var item in @Model.User.UserPocket.AllChips as List<Chips>)
+                {
+                    if(item.Amount > 0)
+                    {
+                        <article class="col-md-1">
+                            <p>@item.Type</p>
+                            <p> @item.Amount</p>
+                            <br />
+                            <br />
+                            <input type="text" name="@item.Type" maxlength="3" size="3" style="color:black">
+                        </article>
+                    }
+                }
+
+        </section>
+
+
+    </header>
+    <aside class="col-md-1"></aside>
+        <style>
+            button {
+                background: #d1396e;
+                background-image: -webkit-linear-gradient(top, #d1396e, #afb82b);
+                background-image: -moz-linear-gradient(top, #d1396e, #afb82b);
+                background-image: -o-linear-gradient(top, #d1396e, #afb82b);
+                background-image: linear-gradient(to bottom, #d1396e, #afb82b);
+                border-radius: 60px;
+                font-family: Courier New;
+                color: #ffffff;
+                font-size: 27px;
+                padding: 1%;
+                margin: 3%;
+                text-decoration: none;
+            }
+
+                button:hover {
+                    background: #283842;
+                    background-image: -webkit-linear-gradient(top, #283842, #acc1cf);
+                    background-image: -moz-linear-gradient(top, #283842, #acc1cf);
+                    background-image: -o-linear-gradient(top, #283842, #acc1cf);
+                    background-image: linear-gradient(to bottom, #283842, #acc1cf);
+                    text-decoration: none;
+                }
+        </style>
+</main>
+}

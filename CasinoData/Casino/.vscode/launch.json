@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceFolder}/CasinoData/CasinoData.Cli/bin/Debug/netcoreapp2.0/CasinoData.Cli.dll",
+            "program": "${workspaceFolder}/Casino.Client/bin/Debug/netcoreapp2.0/Casino.Client.dll",
             "args": [],
-            "cwd": "${workspaceFolder}/CasinoData/CasinoData.Cli",
+            "cwd": "${workspaceFolder}/Casino.Client",
             "stopAtEntry": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {

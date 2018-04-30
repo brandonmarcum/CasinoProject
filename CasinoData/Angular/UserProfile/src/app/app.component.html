@@ -1,0 +1,46 @@
+<main>
+    <header class="col-md-12 content">
+        <table border="0" id="gamestable">
+            <tr><th>Username: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; {{User.username}}</th></tr>
+            <tr><th>Name: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; {{User.name}}</th></tr>
+            <tr><th>Age: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; {{User.age}}</th></tr>
+            <tr><th>Email: &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; {{User.email}}</th></tr>
+            <tr><th>Cash: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{User.cash}}</th></tr>
+            <tr>
+                <td>
+                    <table border="0" width="1000" id="gamestable">
+                        <tr>
+                            <td>White</td>
+                            <td>Red</td>
+                            <td>Blue</td>
+                            <td>Green</td>
+                            <td>Black</td>
+                            <td>Purple</td>
+                            <td>Orange</td>
+                        </tr>
+                        <tr>
+                            <td>{{User.white}}</td>
+                            <td>{{User.red}}</td>
+                            <td>{{User.blue}}</td>
+                            <td>{{User.green}}</td>
+                            <td>{{User.black}}</td>
+                            <td>{{User.purple}}</td>
+                            <td>{{User.orange}}</td>
+                        </tr>
+                        <tr>
+                            <td><button type="button" name="white-add" (click)="add('white')">+</button> <button type="button" name="white-sub" (click)="subtract('white')">-</button></td>
+                            <td><button type="button" name="red-add" (click)="add('red')">+</button> <button type="button" name="red-sub" (click)="subtract('red')">-</button></td>
+                            <td><button type="button" name="blue-add" (click)="add('blue')">+</button> <button type="button" name="blue-sub" (click)="subtract('blue')">-</button></td>
+                            <td><button type="button" name="green-add" (click)="add('green')">+</button> <button type="button" name="green-sub" (click)="subtract('green')">-</button></td>
+                            <td><button type="button" name="black-add" (click)="add('black')">+</button> <button type="button" name="black-sub" (click)="subtract('black')">-</button></td>
+                            <td><button type="button" name="purple-add" (click)="add('purple')">+</button> <button type="button" name="purple-sub" (click)="subtract('purple')">-</button></td>
+                            <td><button type="button" name="orange-add" (click)="add('orange')">+</button> <button type="button" name="orange-sub" (click)="subtract('orange')">-</button></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <button type="submit">Save Changes</button><a href="http://localhost:5001/user/logout"><button type="submit" >Logout</button></a>
+        </table>
+        <br />
+    </header>
+</main>

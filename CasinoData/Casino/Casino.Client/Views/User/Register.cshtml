@@ -1,0 +1,49 @@
+@model Casino.Client.Models.UserProfileViewModel
+
+@using (@Html.BeginForm())
+{
+<header class="col-md-12 content">
+    <h2>Create Account</h2>
+    <style>
+        input {
+            color: black;
+        }
+    </style>
+    <div>
+        <div class="marg-div">
+            @Html.LabelFor(m => m.User.Name)
+            @Html.ValidationMessageFor(m => m.User.Name)
+        </div>
+        <div class="accountbox">
+            @Html.TextBoxFor(m => m.User.Name)
+            </div>
+             <div class="accountbox">
+            @Html.TextBoxFor(m => m.User.Age)
+            </div>
+            <div class="marg-div">
+            @Html.LabelFor(m => m.User.Username)
+            @Html.ValidationMessageFor(m => m.User.Username)
+        </div>
+        <div class="accountbox">
+            @Html.TextBoxFor(m => m.User.Username)
+        </div>
+        <div class="marg-div">
+            @Html.ValidationMessageFor(m => m.User.Email)
+            @Html.LabelFor(m => m.User.Email)
+        </div>
+        <div class="accountbox">
+            @Html.TextBoxFor(m => m.User.Email)
+        </div>
+
+        <div class="marg-div">
+            @Html.ValidationMessageFor(m => m.User.Password)
+            @Html.LabelFor(m => m.User.Password)
+        </div>
+        <div class="accountbox">
+            @Html.TextBoxFor(m => m.User.Password)
+        </div>
+    </div>
+
+    <button type="submit">Register</button>
+</header>
+    }

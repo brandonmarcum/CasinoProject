@@ -1,0 +1,49 @@
+﻿@model Casino.Client.Models.CFViewModel;
+
+@using (@Html.BeginForm())
+{
+    <main>
+        <header class="col-md-3"></header>
+        <header class="col-md-6 content">
+            @if (ViewData["game"].Equals("bet"))
+            {
+                @await Html.PartialAsync("UserBet.cshtml", @Model);
+                <button type="submit" name="submitButton" value="bet">Place Bet</button>
+            }
+            else
+            {
+            @if (CFViewModel.fight.status.Equals("choosing"))
+            {
+                <table class="col-md-12 content">
+                    <tr>
+                        <td>Chicken A</td>
+                        <td>Chicken B</td>
+                    </tr>
+                    <tr>
+                        <td>Health: @CFViewModel.fight.chickenA.Health</td>
+                        <td>Health: @CFViewModel.fight.chickenB.Health</td>
+                    </tr>
+                    <tr>
+                        <td>Attack: @CFViewModel.fight.chickenA.Attack</td>
+                        <td>Attack: @CFViewModel.fight.chickenB.Attack</td>
+                    </tr>
+                    <tr>
+                        <td>Evasion: @CFViewModel.fight.chickenA.Evasion</td>
+                        <td>Evasion: @CFViewModel.fight.chickenB.Evasion</td>
+                    </tr>
+                </table>
+                <button type="submit" name="submitButton" value="chickenA">Bet On A</button>
+                <button type="submit" name="submitButton" value="chickenB">Bet On B</button>
+            }
+            else
+            {
+                <p>@CFViewModel.fight.status</p>
+                <p>Chicken A's Health: @CFViewModel.fight.chickenA.Health</p>
+                <p>Chicken B's Health: @CFViewModel.fight.chickenB.Health</p>
+                <button type="submit" name="submitButton" value="play">Play Again</button>
+            }
+            }
+        </header>
+        <header class="col-md-3"></header>
+    </main>
+}

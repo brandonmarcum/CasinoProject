@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/CasinoData/CasinoData.Cli/CasinoData.Cli.csproj"
+                "${workspaceFolder}/Casino.Db/Casino.Db.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
