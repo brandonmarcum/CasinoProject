@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using CasinoData.Db.DbContexts;
-using Casino.Db;
 
 namespace CasinoData.Db
 {
