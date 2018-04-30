@@ -15,12 +15,12 @@ export class User {
 
     User()
     {
-        this.white = 50;
-        this.red = 50;
-        this.blue = 50;
-        this.green = 50;
-        this.purple = 50;
-        this.black = 50;
-        this.orange = 50;
+        this.white = 0;
+        this.red = 0;
+        this.blue = 0;
+        this.green = 0;
+        this.purple = 0;
+        this.black = 0;
+        this.orange = 0;
     }
 }

@@ -13,13 +13,13 @@ namespace Casino.Library.Models
         public ChipHelper ChipHelper{ get; set; }
         public Pocket(){
             AllChips = new List<Chips>();
-            AllChips.Add(new Chips(){Type = ChipTypes.Orange, Amount = 10});
-            AllChips.Add(new Chips(){Type = ChipTypes.Purple, Amount = 20});
-            AllChips.Add(new Chips(){Type = ChipTypes.Black, Amount = 30});
-            AllChips.Add(new Chips(){Type = ChipTypes.Green, Amount = 40});
-            AllChips.Add(new Chips(){Type = ChipTypes.Blue, Amount = 50});
-            AllChips.Add(new Chips(){Type = ChipTypes.Red, Amount = 70});
-            AllChips.Add(new Chips(){Type = ChipTypes.White, Amount = 60});
+            AllChips.Add(new Chips(){Type = ChipTypes.Orange, Amount = 0});
+            AllChips.Add(new Chips(){Type = ChipTypes.Purple, Amount = 0});
+            AllChips.Add(new Chips(){Type = ChipTypes.Black, Amount = 0});
+            AllChips.Add(new Chips(){Type = ChipTypes.Green, Amount = 0});
+            AllChips.Add(new Chips(){Type = ChipTypes.Blue, Amount = 0});
+            AllChips.Add(new Chips(){Type = ChipTypes.Red, Amount = 0});
+            AllChips.Add(new Chips(){Type = ChipTypes.White, Amount = 0});
         }
         public void cashOutPocket()
         {
