@@ -30,4 +30,8 @@
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
 </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\CasinoData.Db\CasinoData.Db.csproj" />
+  </ItemGroup>
+
 </Project>
